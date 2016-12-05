@@ -22,4 +22,8 @@ class ContactShare < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :User
+
+  def self.share_contact!(user_id, contact_id)
+    ContactShare.create!(user_id: user_id, contact_id: contact_id)
+  end
 end
