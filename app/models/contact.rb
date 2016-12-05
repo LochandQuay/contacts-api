@@ -12,7 +12,7 @@
 
 class Contact < ActiveRecord::Base
   validates :name, :email, :user_id, presence: true
-  validates :email, :user_id, uniqueness: true
+  validates :email, uniqueness: { scope: :user_id }
 
   belongs_to :owner,
     primary_key: :id,
@@ -28,4 +28,5 @@ class Contact < ActiveRecord::Base
   has_many :shared_users,
     through: :contact_shares,
     source: :user
+
 end
