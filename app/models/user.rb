@@ -14,12 +14,14 @@ class User < ActiveRecord::Base
   has_many :contacts,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :Contact
+    class_name: :Contact,
+    dependent: :destroy
 
   has_many :contact_shares,
     primary_key: :id,
     foreign_key: :user_id,
-    class_name: :ContactShare
+    class_name: :ContactShare,
+    dependent: :destroy
 
   # set of contacts that have been shared with a user
   # NOT the set of contacts that a user has shared with others
