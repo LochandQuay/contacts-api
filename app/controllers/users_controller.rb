@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
   def index
-    render text: "I'm in the index action!"
+    @users = User.all
+    render json: @users
+  end
+
+  def create
+  end
+
+  def show
   end
 end
