@@ -29,8 +29,7 @@ class Contact < ActiveRecord::Base
     through: :contact_shares,
     source: :user
 
-  has_many :comments,
-    as: :commentable
+  has_many :comments, as: :commentable
 
   def self.contacts_for_user_id(user_id)
     owned_contacts = Contact.where('user_id = ?', user_id)
