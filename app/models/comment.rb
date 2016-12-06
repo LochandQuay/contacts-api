@@ -22,4 +22,10 @@ class Comment < ActiveRecord::Base
     foreign_key: :author_id,
     class_name: :User
 
+  def self.comments_for_user_id(user_id)
+    authored = User.find(user_id).authored_comments
+    received = User.find(user_id).comments
+    { authored: authored,
+      received: received }
+  end
 end

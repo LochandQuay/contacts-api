@@ -33,6 +33,6 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :author_id,
     class_name: :Comment
-    
+
   has_many :comments, as: :commentable
 end
