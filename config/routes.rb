@@ -6,9 +6,18 @@ Rails.application.routes.draw do
     resources :contacts, only: [:index]
   end
 
+  resources :users do
+    resources :comments
+  end
+
   resources :contacts, only: [:create, :destroy, :show, :update]
 
+  resources :contacts do
+    resources :comments
+  end
+
   resources :contact_shares, only: [:create, :destroy]
+
 
   # get '/users/:id' => 'users#show', :as => 'user'
   # get '/users' => 'users#index', :as => 'users'
